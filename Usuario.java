@@ -21,9 +21,9 @@ public class Usuario {
 
 
     public int getTipoUsuario() {
+
         return tipoUsuario;
     }
-
 
     public void setTipoUsuario(int tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
@@ -47,6 +47,13 @@ public class Usuario {
 
     public void setDepartamento(int departamento) {
         this.departamento = departamento;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Usuario [departamento=" + departamento + ", idUsuario=" + idUsuario + ", nome=" + nome
+                + ", tipoUsuario=" + tipoUsuario + "]";
     }
 
     
