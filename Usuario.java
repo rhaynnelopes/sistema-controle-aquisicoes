@@ -1,13 +1,15 @@
 public class Usuario {
     
     int idUsuario = 0;
+    int tipoUsuario = 0;
     String nome = " ";
     int departamento = 0;
 
 
-    public Usuario(int idUsuario, String nome, int departamento) {
+    public Usuario(int idUsuario, int tipoUsuario, String nome, int departamento) {
 
         this.idUsuario = idUsuario;
+        this.tipoUsuario = tipoUsuario;
         this.nome = nome;
         this.departamento = departamento;
     }
@@ -15,6 +17,16 @@ public class Usuario {
 
     public int getIdUsuario() {
         return idUsuario;
+    }
+
+
+    public int getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+
+    public void setTipoUsuario(int tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
 
