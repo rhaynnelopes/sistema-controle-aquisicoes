@@ -19,4 +19,10 @@ public class Departamento
 		this.admId = admId;
 	}
 	
+	@Override
+	public String toString() {
+	    return "Departamento [Id Departamento =" + getIdDepartamento() +
+	                         "Nome Departamento =" + getNomeDepartamento() + 
+	                         "Valor Máximo =" + getValorMaximo() + "]";
+	}
 }
