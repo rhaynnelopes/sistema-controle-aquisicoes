@@ -12,5 +12,11 @@ public class Departamento
         this.admId = admId;
 	}
 	
+	public int getAdmId() {
+		return admId;
+	}
+	public void setAdmId(int admId) {
+		this.admId = admId;
+	}
 	
 }
