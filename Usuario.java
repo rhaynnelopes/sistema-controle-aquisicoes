@@ -1,13 +1,15 @@
+import java.util.ArrayList;
 public class Usuario {
     
-    int idUsuario = 0;
-    int tipoUsuario = 0;
-    String nome = " ";
-    int departamento = 0;
+    Usuario ListaUsuarios [] = new Usuario [15];
 
+    protected int idUsuario = 0;
+    protected int tipoUsuario = 0;
+    protected String nome = " ";
+    protected int departamento = 0;
+    protected int usuarioCadastrado = 0;
 
     public Usuario(int idUsuario, int tipoUsuario, String nome, int departamento) {
-
         this.idUsuario = idUsuario;
         this.tipoUsuario = tipoUsuario;
         this.nome = nome;
@@ -16,9 +18,19 @@ public class Usuario {
 
 
     public int getIdUsuario() {
+
         return idUsuario;
     }
 
+        public Usuario pesquisarID (int idUsuario) {
+            for(int i=0; i < usuarioCadastrado ; i++){
+                if(ListaUsuarios[i].getIdUsuario() == idUsuario){
+                     return ListaUsuarios[i];
+     
+                 }
+             }
+             return null;
+         }
 
     public int getTipoUsuario() {
 
@@ -28,6 +40,7 @@ public class Usuario {
     public void setTipoUsuario(int tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
+    
 
 
     public String getNome() {
