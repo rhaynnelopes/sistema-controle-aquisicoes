@@ -11,7 +11,27 @@ public class Departamento
 	    this.nomeDepartamento = nomeDepartamento;
         this.admId = admId;
 	}
+	public int getIdDepartamento() {
+	    return idDepartamento;
+	}
 	
+	public void setIdDepartamento(int idDepartamento) {
+	    this.idDepartamento = idDepartamento;
+	}
+	
+	public int getValorMaximo() {
+	    return valorMaximo;
+	}
+	
+	public void setValorMaximo(int valorMaximo) {
+	    this.valorMaximo = valorMaximo;
+	}
+	public String getNomeDepartamento() {
+	    return getNomeDepartamento;
+	}
+	public void setNomeDepartamento(String nomeDepartamento) {
+	    this.nomeDepartamento = nomeDepartamento;
+	}
 	public int getAdmId() {
 		return admId;
 	}
