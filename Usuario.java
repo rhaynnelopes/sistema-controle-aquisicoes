@@ -1,7 +1,21 @@
 import java.util.ArrayList;
+
 public class Usuario {
 
-    Usuario ListaUsuarios [] = new Usuario [15];
+   private ArrayList<Usuario> usuario;
+   
+   public Usuario() {
+       usuario = new ArrayList<Usuario>();
+   }
+
+   public boolean cadastroUsuario (Usuario usuario) {
+       if(usuario == null) {
+            return false;
+       }
+       return true;
+    } 
+        
+   
 
     protected int idUsuario = 0;
     protected int tipoUsuario = 0;
@@ -24,29 +38,6 @@ public class Usuario {
         return idUsuario;
     }
 
-    // Verificar se o ID inserido no login de usuário é válido (se existe na base)
-       /* public Usuario pesquisarID (int idUsuario) {
-            for(int i=0; i < usuarioCadastrado ; i++){
-                if(ListaUsuarios[i].getIdUsuario() == idUsuario){
-                     return ListaUsuarios[i];
-     
-                 }
-             }
-             return null;
-         }
-         */
-
-         public boolean adicionaFuncionario (Usuario usuario){
-            if(proxPosicao == 15){
-            System.out.println("Já está cheio");
-            return false;
-            } else {
-                this.ListaUsuarios[proxPosicao] = usuario;
-                this.proxPosicao++;
-                System.out.println("Usuário adicionário");
-                return true;
-            }
-        }
         
     public int getTipoUsuario() {
 
@@ -77,11 +68,11 @@ public class Usuario {
         this.departamento = departamento;
     }
 
-    public void imprimeLista(){
-        for(int i = 0; i < this.proxPosicao; i++){
-            System.out.println(this.ListaUsuarios[i]);
-        }
-    }
+    // public void imprimeLista(){
+    //     for(int i = 0; i < this.proxPosicao; i++){
+    //         System.out.println(this.ListaUsuarios[i]);
+    //     }
+    // }
 
 
     @Override
@@ -89,7 +80,5 @@ public class Usuario {
         return "Usuario [departamento=" + departamento + ", idUsuario=" + idUsuario + ", nome=" + nome
                 + ", tipoUsuario=" + tipoUsuario + "]";
     }
-
-    
 
 }
