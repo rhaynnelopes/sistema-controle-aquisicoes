@@ -2,36 +2,35 @@ import java.util.ArrayList;
 
 public class Usuario {
 
-   private ArrayList<Usuario> usuario;
+   private ArrayList<Usuario> usuarios;
    
    public Usuario() {
-       usuario = new ArrayList<Usuario>();
+       usuarios = new ArrayList<Usuario>();
    }
 
-   public boolean cadastroUsuario (Usuario usuario) {
-       if(usuario == null) {
-            return false;
-       }
-       return true;
-    } 
         
-   
-
     protected int idUsuario = 0;
     protected int tipoUsuario = 0;
     protected String nome = " ";
+    protected String iniciais = " "; 
     protected int departamento = 0;
     protected int usuarioCadastrado = 0;
     protected int proxPosicao; 
 
 
-    public Usuario(int idUsuario, int tipoUsuario, String nome, int departamento) {
+    public Usuario(int idUsuario, int tipoUsuario, String nome, String iniciais, int departamento) {
         this.idUsuario = idUsuario;
         this.tipoUsuario = tipoUsuario;
         this.nome = nome;
         this.departamento = departamento;
     }
 
+    public boolean cadastroUsuario (Usuario usuario) {
+        if(usuario == null) {
+             return false;
+        }
+        return usuarios.add(usuario);
+     } 
 
     public int getIdUsuario() {
 
@@ -56,6 +55,10 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getIniciais() {
+        return iniciais;
     }
 
 
