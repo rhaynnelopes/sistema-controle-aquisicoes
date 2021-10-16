@@ -27,7 +27,7 @@ public class Departamento
 	    this.valorMaximo = valorMaximo;
 	}
 	public String getNomeDepartamento() {
-	    return getNomeDepartamento;
+	    return nomeDepartamento;
 	}
 	public void setNomeDepartamento(String nomeDepartamento) {
 	    this.nomeDepartamento = nomeDepartamento;
