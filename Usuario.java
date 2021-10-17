@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 
 public class Usuario {
-
+    
    private ArrayList<Usuario> usuarios;
    
    public Usuario() {
        usuarios = new ArrayList<Usuario>();
    }
-
         
     protected int idUsuario = 0;
     protected int tipoUsuario = 0;
@@ -36,8 +35,7 @@ public class Usuario {
 
         return idUsuario;
     }
-
-        
+   
     public int getTipoUsuario() {
 
         return tipoUsuario;
@@ -76,7 +74,6 @@ public class Usuario {
     //         System.out.println(this.ListaUsuarios[i]);
     //     }
     // }
-
 
     @Override
     public String toString() {

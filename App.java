@@ -8,6 +8,8 @@ public class App {
         
         listaUsuarios.cadastroUsuario(new Usuario (01, 2, "Claudio Roberto", "CR", 3));
         listaUsuarios.cadastroUsuario(new Usuario (02, 2, "Laura Fonseca", "LF", 2));
+        listaUsuarios.cadastroUsuario(new Usuario (03, 1, "Alice Silva", "AS", 1));
+
 
     
         // int usuarioLogado;
