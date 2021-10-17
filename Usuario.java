@@ -58,8 +58,8 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario [departamento=" + departamento + ", idUsuario=" + idUsuario + ", nome=" + nome
-                + ", tipoUsuario=" + tipoUsuario + "]";
+        return "Usuario [ID: " + idUsuario + ", tipo: " + tipoUsuario + ", nome: " + nome
+                + ", departamento: " + departamento + "]";
     }
 
 }

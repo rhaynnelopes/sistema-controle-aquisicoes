@@ -14,7 +14,9 @@ public class App {
         listaUsuarios.add( new Usuario (02, 2, "Laura Fonseca", "LF", 2));
         listaUsuarios.add( new Usuario (03, 1, "Alice Silva", "AS", 1));
 
-
+        for (Usuario usuario : listaUsuarios) {
+            System.out.println(usuario.toString());
+        }
 
 
         System.out.println("Selecione o seu usuário (insira o ID do usuário escolhido):");
