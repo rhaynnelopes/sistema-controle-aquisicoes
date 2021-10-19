@@ -57,9 +57,10 @@ public class Usuario {
         this.idDepartamento = idDepartamento;
     }
 
+    //int idUsuario, int tipoUsuario, String nome, String iniciais, int idDepartamento
     @Override
     public String toString() {
-        return "Usuario [departamento=" + idDepartamento + ", idUsuario=" + idUsuario + ", nome=" + nome
-                + ", tipoUsuario=" + tipoUsuario + "]";
+        return "Usuario [ID: " + idUsuario + ", Tipo: " + tipoUsuario + ", Nome: " + nome
+                + ", Departamento: " + idDepartamento + "]";
     }
 }
