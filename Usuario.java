@@ -15,6 +15,7 @@ public class Usuario {
         this.idUsuario = idUsuario;
         this.tipoUsuario = tipoUsuario;
         this.nome = nome;
+        this.iniciais = iniciais;
         this.idDepartamento = idDepartamento;
     }
 
