@@ -2,8 +2,8 @@ public class Funcionario extends Usuario{
 
     protected int idUsuario;
 
-    public Funcionario(String nome, int idUsuario, int idDepartamento){
-        super(nome, idUsuario, idDepartamento); //Chama os parâmetros da classe mãe;
+    public Funcionario(int idUsuario, int tipoUsuario, String nome, String iniciais, int idDepartamento){
+        super(idUsuario, tipoUsuario, nome, iniciais, idDepartamento); //Chama os parâmetros da classe mãe;
     }
 
     public int solicitaPedido() {
