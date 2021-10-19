@@ -26,5 +26,27 @@ public class App {
             System.out.println(usuario.toString());
         }
     }
-
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Selecione o usuario:"); //imprimir lista de usuarios, talvez
+        int idUser = entrada.nextInt();
+        
+        //Atribuir opcao ao usuario atual
+        //Após isto exibir menu
+        //Se for ADM:
+        System.out.println("Selecione a ação desejada: \n1 - registrar novo pedido\n2 - Aprovar pedido de aquisição");
+        int opcao = entrada.nextInt();
+        
+        switch(opcao) {
+        case 1:
+           System.out.println("REGISTRO DE PEDIDO:\n");
+           //selecionar item por id
+           //selecionar quantidade
+           break;
+       case 2:
+           System.out.println("GERENCIAR REQUISIÇÕES:\n");
+           //lista de pedidos
+           //selecionar id do pedido 
+           //case 1 ou para aprovar ou 2 para rejeitar
+           break;
+        }
 }
