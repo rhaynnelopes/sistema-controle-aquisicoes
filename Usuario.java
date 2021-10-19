@@ -12,7 +12,7 @@ public class Usuario {
     protected int tipoUsuario = 0;
     protected String nome = " ";
     protected String iniciais = " "; 
-    protected int departamento = 0;
+    protected int idDepartamento = 0;
     protected int usuarioCadastrado = 0;
     protected int proxPosicao; 
 
@@ -21,7 +21,7 @@ public class Usuario {
         this.idUsuario = idUsuario;
         this.tipoUsuario = tipoUsuario;
         this.nome = nome;
-        this.departamento = departamento;
+        this.idDepartamento = idDepartamento;
     }
 
     public boolean cadastroUsuario (Usuario usuario) {
@@ -60,24 +60,19 @@ public class Usuario {
     }
 
 
-    public int getDepartamento() {
-        return departamento;
+    public int getIdDepartamento() {
+        return idDepartamento;
     }
 
 
-    public void setDepartamento(int departamento) {
-        this.departamento = departamento;
+    public void setDepartamento(int idDepartamento) {
+        this.idDepartamento = idDepartamento;
     }
 
-    // public void imprimeLista(){
-    //     for(int i = 0; i < this.proxPosicao; i++){
-    //         System.out.println(this.ListaUsuarios[i]);
-    //     }
-    // }
 
     @Override
     public String toString() {
-        return "Usuario [departamento=" + departamento + ", idUsuario=" + idUsuario + ", nome=" + nome
+        return "Usuario [departamento=" + idDepartamento + ", idUsuario=" + idUsuario + ", nome=" + nome
                 + ", tipoUsuario=" + tipoUsuario + "]";
     }
 
