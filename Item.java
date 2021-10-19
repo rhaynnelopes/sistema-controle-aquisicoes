@@ -4,31 +4,30 @@ public class Item extends PedidoAquisicao {
     // se for igual, so deixar com o mesmo nome
     
     private String Descricao;
-    private  int ValorUnitario;
+    private  double ValorUnitario;
     private int Quantidade;
     
     public String getDescricao(){
         return Descricao;
     }
     
-    public String settDescricao(){
-        return Descricao;
+    public String setDescricao(String d){
+        this.Descricao = d;
     }
     
-    public int getValorUnitario(){
+    public double getValorUnitario(){
         return ValorUnitario;
     }
     
-    public int setValorUnitario(){
-        return ValorUnitario;
+    public void setValorUnitario(double vu){
+        this.ValorUnitario = vu;
     }
     
     public int getQuantidade(){
         return Quantidade;
     }
     
-    public int setQuantidade(){
-        return Quantidade;
+    public void setQuantidade(int q){
+        this.Quantidade = q;
     }
-    // teste
     }
