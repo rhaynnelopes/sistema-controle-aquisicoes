@@ -1,12 +1,56 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+    int menu = 1;
+    ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();        
 
-        ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        Scanner entrada = new Scanner(System.in);
+    do {
+            System.out.println("SEJA BEM-VINDO!\n");
+            criarEExibirListaUsuarios(listaUsuarios);
+            System.out.println("\n\nSelecione seu usuario pelo id:"); //imprimir lista de usuarios, talvez
+            int idUser = entrada.nextInt();
+        
+            Usuario userAtual = new Usuario();
 
-        criarEExibirListaUsuarios(listaUsuarios);
-
+            for (Usuario user : listaUsuarios)
+            {
+                if(idUser == user.getIdUsuario())
+                userAtual = user;
+            }
+            menu++;
+        do {            
+            switch(userAtual.tipoUsuario)
+            {            
+                case 1:
+                    System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Aprovar pedido de aquisição\n0 - Voltar");
+                    int opcao = entrada.nextInt();
+                    menu++;
+                    switch(opcao) {
+                        case 1:
+                            System.out.println("REGISTRO DE PEDIDO:\n");
+                            //selecionar item por id
+                            //selecionar quantidade
+                        break;
+                        case 2:
+                            System.out.println("GERENCIAR REQUISIÇÕES:\n");
+                                //lista de pedidos
+                                //selecionar id do pedido 
+                                //case 1 ou para aprovar ou 2 para rejeitar
+                                break;
+                        case 0:
+                            menu--;
+                    }
+                case 2:
+                
+                case 0:
+                menu--;
+            }
+        }while(menu >= 2);
+    }while(menu >= 1);   
+        entrada.close();
     }
 
     private static void criarEExibirListaUsuarios(ArrayList<Usuario> listaUsuarios) {
@@ -25,28 +69,5 @@ public class App {
         for (Usuario usuario : listaUsuarios) {
             System.out.println(usuario.toString());
         }
-    }
-        Scanner entrada = new Scanner(System.in);
-        System.out.println("Selecione o usuario:"); //imprimir lista de usuarios, talvez
-        int idUser = entrada.nextInt();
-        
-        //Atribuir opcao ao usuario atual
-        //Após isto exibir menu
-        //Se for ADM:
-        System.out.println("Selecione a ação desejada: \n1 - registrar novo pedido\n2 - Aprovar pedido de aquisição");
-        int opcao = entrada.nextInt();
-        
-        switch(opcao) {
-        case 1:
-           System.out.println("REGISTRO DE PEDIDO:\n");
-           //selecionar item por id
-           //selecionar quantidade
-           break;
-       case 2:
-           System.out.println("GERENCIAR REQUISIÇÕES:\n");
-           //lista de pedidos
-           //selecionar id do pedido 
-           //case 1 ou para aprovar ou 2 para rejeitar
-           break;
-        }
+    }       
 }

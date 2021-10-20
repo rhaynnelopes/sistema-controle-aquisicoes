@@ -18,6 +18,10 @@ public class Usuario {
         this.departamento = departamento;
     }
 
+    public Usuario() {
+
+    }
+
     public int getIdUsuario() {
 
         return idUsuario;
