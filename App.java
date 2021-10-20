@@ -26,7 +26,7 @@ public class App {
             switch(userAtual.tipoUsuario)
             {            
                 case 1:
-                    System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Aprovar pedido de aquisição\n0 - Voltar");
+                    System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Aprovar pedido de aquisição\n3 - Verificar Estatisticas Gerais\n0 - Voltar");
                     int opcao = entrada.nextInt();                    
                     System.out.println("valor menu = " + menu);
                     System.out.println(menu);
@@ -42,6 +42,9 @@ public class App {
                                 //selecionar id do pedido 
                                 //case 1 ou para aprovar ou 2 para rejeitar
                                 break;
+                        case 3:
+                            System.out.println("ESTATISTICAS GERAIS:\n");
+                        break;
                         case 0:
                             menu--;
                             System.out.println("valor menu = " + menu);
