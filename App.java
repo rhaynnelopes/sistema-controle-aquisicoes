@@ -3,31 +3,33 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-    int menu = 1;
+    int menu = 0;
     ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();        
 
         Scanner entrada = new Scanner(System.in);
     do {
+        System.out.println("valor menu = " + menu);
             System.out.println("SEJA BEM-VINDO!\n");
             criarEExibirListaUsuarios(listaUsuarios);
             System.out.println("\n\nSelecione seu usuario pelo id:"); //imprimir lista de usuarios, talvez
             int idUser = entrada.nextInt();
         
             Usuario userAtual = new Usuario();
-
+            menu++;
+            System.out.println("valor menu = " + menu);
             for (Usuario user : listaUsuarios)
             {
                 if(idUser == user.getIdUsuario())
                 userAtual = user;
             }
-            menu++;
         do {            
             switch(userAtual.tipoUsuario)
             {            
                 case 1:
                     System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Aprovar pedido de aquisição\n0 - Voltar");
-                    int opcao = entrada.nextInt();
-                    menu++;
+                    int opcao = entrada.nextInt();                    
+                    System.out.println("valor menu = " + menu);
+                    System.out.println(menu);
                     switch(opcao) {
                         case 1:
                             System.out.println("REGISTRO DE PEDIDO:\n");
@@ -42,14 +44,30 @@ public class App {
                                 break;
                         case 0:
                             menu--;
+                            System.out.println("valor menu = " + menu);
                     }
+                break;
                 case 2:
-                
-                case 0:
-                menu--;
+                    System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Aprovar pedido de aquisição\n0 - Voltar");
+                    opcao = entrada.nextInt();                    
+                    System.out.println("valor menu = " + menu);
+                    switch(opcao) {
+                        case 1:
+                            System.out.println("REGISTRO DE PEDIDO:\n");
+                            //selecionar item por id
+                            //selecionar quantidade
+                        break;
+
+                        case 0:
+                        menu--;
+                        System.out.println("valor menu = " + menu);
+                        break;
+                    }                
+                System.out.println("valor menu = " + menu);
+                break;
             }
-        }while(menu >= 2);
-    }while(menu >= 1);   
+        }while(menu == 1);
+    }while(menu == 0);   
         entrada.close();
     }
 
