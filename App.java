@@ -59,7 +59,7 @@ public class App {
                     }
                 break;
                 case 2:
-                    System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Aprovar pedido de aquisição\n0 - Voltar");
+                    System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n0 - Voltar");
                     opcao = entrada.nextInt();                    
                     System.out.println("valor menu = " + menu);
                     switch(opcao) {
