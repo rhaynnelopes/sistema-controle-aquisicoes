@@ -1,5 +1,3 @@
-public enum Status{
-    Aprovado, Reprovado, Pendente
-
+public enum Status {
+    Aprovado, Reprovado, Pendente, Finalizado;
 }
-
