@@ -31,7 +31,7 @@ public class PedidoAquisicao {
     public boolean insereItem(Item item) {
         if (status == Status.Pendente) {
             itens.add(item);
-            // valorTotalPedido += item.getValorTotal(); // valor unitário*quantiade do item
+            valorTotalPedido += item.getValorUnitario()*item.getQuantidade(); 
 
             return true;
         } else {
