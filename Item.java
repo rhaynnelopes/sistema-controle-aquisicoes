@@ -14,26 +14,26 @@ public class Item{
     }
 
     public String getDescricao(){
-        return Descricao;
+        return descricao;
     }
     
     public void setDescricao(String d){
-        this.Descricao = d;
+        this.descricao = d;
     }
     
     public double getValorUnitario(){
-        return ValorUnitario;
+        return valorUnitario;
     }
     
     public void setValorUnitario(double vu){
-        this.ValorUnitario = vu;
+        this.valorUnitario = vu;
     }
     
     public int getQuantidade(){
-        return Quantidade;
+        return quantidade;
     }
     
     public void setQuantidade(int q){
-        this.Quantidade = q;
+        this.quantidade = q;
     }
     }
