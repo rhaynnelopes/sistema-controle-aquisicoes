@@ -3,31 +3,37 @@ public class Item extends PedidoAquisicao {
     //  No pedido aquisição tem valorTotal diferente do total do item?
     // se for igual, so deixar com o mesmo nome
     
-    private String Descricao;
-    private  double ValorUnitario;
-    private int Quantidade;
+    private String descricao;
+    private  double valorUnitario;
+    private int quantidade;
     
-    public String getDescricao(){
-        return Descricao;
+    public Item(int quantidade, double valorUnitario, String descricao){
+        this.quantidade=quantidade;
+        this.valorUnitario=valorUnitario;
+        this.descricao=descricao;
+   } 
+   
+    public String getdDescricao(){
+        return descricao;
     }
     
     public String setDescricao(String d){
-        this.Descricao = d;
+        this.descricao = d;
     }
     
     public double getValorUnitario(){
-        return ValorUnitario;
+        return valorUnitario;
     }
     
     public void setValorUnitario(double vu){
-        this.ValorUnitario = vu;
+        this.valorUnitario = vu;
     }
     
     public int getQuantidade(){
-        return Quantidade;
+        return quantidade;
     }
     
     public void setQuantidade(int q){
-        this.Quantidade = q;
+        this.quantidade = q;
     }
     }
