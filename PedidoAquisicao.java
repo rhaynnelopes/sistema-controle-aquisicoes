@@ -1,19 +1,14 @@
 import java.util.ArrayList;
-import java.util.Date;
 
 public class PedidoAquisicao {
 
-    private static int count = 0;
     private int numeroPedido;
     private Status status;
     private Data dataPedido;
     private Data dataConclusao;
-    private int idDepartamento;
-    private int idUsuario;
     private Funcionario funcionario;
     private Departamento departamento;
     private double valorTotal = 0; // soma do valor total de todos itens;
-    private int tipoUsuario;
     private ArrayList<Item> itens;
 
     public PedidoAquisicao(Funcionario funcionario, Departamento departamento, Data dataPedido, int numeroPedido, ArrayList<Item> itens, Status status) {
@@ -41,6 +36,14 @@ public class PedidoAquisicao {
         return dataPedido;
     }
 
+    public Funcionario getFuncionario(){
+        return funcionario;
+    }
+
+    public Departamento getDepartamento(){
+        return departamento;
+    }
+    
     // public void buscarPedido(int tipoUsuario){
         
     //     if (tipoUsuario == 1) {
@@ -74,8 +77,7 @@ public class PedidoAquisicao {
     @Override
     public String toString() {
         return "[Pedido nro: " + numeroPedido + ", Status: " + status + ", DataPedido: " + dataPedido
-                + ", DataConclusao: " + dataConclusao + ", idDepartamento: " + idDepartamento + ", idUsuário: "
-                + idUsuario + ", ValorTotal: " + valorTotal + ", TipoUsuario: " + tipoUsuario + ", Itens: "
+                + ", DataConclusao: " + dataConclusao + ", ValorTotal: " + valorTotal + ", Itens: "
                 + itens;
     }
 
