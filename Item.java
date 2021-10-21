@@ -1,17 +1,23 @@
-public class Item extends PedidoAquisicao {
+public class Item{
     // numero pedido e valor total já vao ta incluso.
     //  No pedido aquisição tem valorTotal diferente do total do item?
     // se for igual, so deixar com o mesmo nome
     
-    private String Descricao;
-    private  double ValorUnitario;
-    private int Quantidade;
+    private String descricao;
+    private  double valorUnitario;
+    private int quantidade;
     
+    public Item(String descricao, double valorUnitario, int quantidade){
+        this.descricao = descricao;
+        this.valorUnitario = valorUnitario;
+        this.quantidade = quantidade;
+    }
+
     public String getDescricao(){
         return Descricao;
     }
     
-    public String setDescricao(String d){
+    public void setDescricao(String d){
         this.Descricao = d;
     }
     
