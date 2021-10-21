@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PedidoAquisicao {
 
@@ -9,34 +10,19 @@ public class PedidoAquisicao {
     private Data dataConclusao;
     private int idDepartamento;
     private int idUsuario;
-    private double valorTotalPedido = 0; // soma do valor total de todos itens;
+    private Funcionario funcionario;
+    private Departamento departamento;
+    private double valorTotal = 0; // soma do valor total de todos itens;
     private int tipoUsuario;
     private ArrayList<Item> itens;
 
-    public PedidoAquisicao(int idUsuario, int idDepartamento, Data dataPedido, int tipoUsuario) {
-        itens = new ArrayList<Item>();
-        count++;
-        numeroPedido = count;
-        this.idUsuario = idUsuario;
-        this.idDepartamento = idDepartamento;
+    public PedidoAquisicao(Funcionario funcionario, Departamento departamento, Data dataPedido, int numeroPedido, ArrayList<Item> itens, Status status) {
+        this.funcionario = funcionario;
+        this.departamento = departamento;
         this.dataPedido = dataPedido;
-        this.dataConclusao = null;
-        if (tipoUsuario == 1) {
-            status = Status.Aprovado;
-        } else {
-            status = Status.Pendente;
-        }
-    }
-
-    public boolean insereItem(Item item) {
-        if (status == Status.Pendente) {
-            itens.add(item);
-            // valorTotalPedido += item.getValorTotal(); // valor unitário*quantiade do item
-
-            return true;
-        } else {
-            return false;
-        }
+        this.numeroPedido = numeroPedido;
+        this.itens = itens;
+        this.status = status;
     }
 
     public int getNumeroPedido() {
@@ -47,71 +33,49 @@ public class PedidoAquisicao {
         return status;
     }
 
-    public boolean setStatus(Status status) {
-        if (tipoUsuario == 1) {
-            this.status = status;
-            return true;
-        } else
-            return false;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public Data getDataPedido() {
         return dataPedido;
     }
 
-    public void confirmaEntrega(int tipoUsuario) {
-        if (tipoUsuario == 1) {
-        this.status = Status.Finalizado;
-        } else {};//aprimorar
-    }
-
-    public int getIdDepartamento() {
-        return idDepartamento;
-    }
-
-    public boolean remocaoPedido(int idUsuario, int numeroPedido) {
-        if (this.idUsuario == idUsuario && this.numeroPedido == numeroPedido) {
-            // ????
-            return true;
-        } else
-            return false;
-    }
-
-    public void buscarPedido(int tipoUsuario){
+    // public void buscarPedido(int tipoUsuario){
         
-        if (tipoUsuario == 1) {
-        int menu;
-        System.out.println("Selecione como você deseja fazer a busca dos pedidos");
-        System.out.println("1.Buscar pedidos entre duas datas");
-        System.out.println("2.Buscar pedidos de um funcionario");
-        System.out.println("3.Buscar pedido pela descrição do item");
-        //scanner
-        switch(menu){
-            case 1:
-                System.out.println("Selecione um intervalo de tempo");
+    //     if (tipoUsuario == 1) {
+    //     int menu;
+    //     System.out.println("Selecione como você deseja fazer a busca dos pedidos");
+    //     System.out.println("1.Buscar pedidos entre duas datas");
+    //     System.out.println("2.Buscar pedidos de um funcionario");
+    //     System.out.println("3.Buscar pedido pela descrição do item");
+    //     //scanner
+    //     switch(menu){
+    //         case 1:
+    //             System.out.println("Selecione um intervalo de tempo");
                 
-            case 2:
-            //aprimorar
-                System.out.println("Digite o id do funcionario");
-                for (int i = 0; i < itens.size(); i++) {
-                    if (itens.get(i).getNumero() == idFuncionario) {
-                        return itens.get(i);
-                    }
+    //         case 2:
+    //         //aprimorar
+    //             System.out.println("Digite o id do funcionario");
+    //             for (int i = 0; i < itens.size(); i++) {
+    //                 if (itens.get(i).getNumero() == idFuncionario) {
+    //                     return itens.get(i);
+    //                 }
                     
-                }
+    //             }
 
-            case 3:
-                System.out.println("Digite a descrição do item");
-        }
-        } else {};
+    //         case 3:
+    //             System.out.println("Digite a descrição do item");
+    //     }
+    //     } else {};
 
-    }
+    // }
 
     @Override
     public String toString() {
-        return "[Pedido nro: " + numeroPedido + "\nStatus: " + status + "\nDataPedido: " + dataPedido
-                + "\nDataConclusao: " + dataConclusao + "\nidDepartamento: " + idDepartamento + "\nidUsuário: "
-                + idUsuario + "\nValorTotalPedido: " + valorTotalPedido + "\nTipoUsuario: " + tipoUsuario + "\nItens: "
+        return "[Pedido nro: " + numeroPedido + ", Status: " + status + ", DataPedido: " + dataPedido
+                + ", DataConclusao: " + dataConclusao + ", idDepartamento: " + idDepartamento + ", idUsuário: "
+                + idUsuario + ", ValorTotal: " + valorTotal + ", TipoUsuario: " + tipoUsuario + ", Itens: "
                 + itens;
     }
 
