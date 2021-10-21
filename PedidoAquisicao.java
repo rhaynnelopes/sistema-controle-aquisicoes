@@ -59,8 +59,10 @@ public class PedidoAquisicao {
         return dataPedido;
     }
 
-    public void confirmaEntrega() {
+    public void confirmaEntrega(int tipoUsuario) {
+        if (tipoUsuario == 1) {
         this.status = Status.Finalizado;
+        } else {};//aprimorar
     }
 
     public int getIdDepartamento() {
@@ -73,6 +75,36 @@ public class PedidoAquisicao {
             return true;
         } else
             return false;
+    }
+
+    public void buscarPedido(int tipoUsuario){
+        
+        if (tipoUsuario == 1) {
+        int menu;
+        System.out.println("Selecione como você deseja fazer a busca dos pedidos");
+        System.out.println("1.Buscar pedidos entre duas datas");
+        System.out.println("2.Buscar pedidos de um funcionario");
+        System.out.println("3.Buscar pedido pela descrição do item");
+        //scanner
+        switch(menu){
+            case 1:
+                System.out.println("Selecione um intervalo de tempo");
+                
+            case 2:
+            //aprimorar
+                System.out.println("Digite o id do funcionario");
+                for (int i = 0; i < itens.size(); i++) {
+                    if (itens.get(i).getNumero() == idFuncionario) {
+                        return itens.get(i);
+                    }
+                    
+                }
+
+            case 3:
+                System.out.println("Digite a descrição do item");
+        }
+        } else {};
+
     }
 
     @Override
