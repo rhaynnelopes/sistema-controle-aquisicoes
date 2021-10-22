@@ -3,8 +3,9 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-    int menu = 0;
+    int pedido = 1;
     Status status;
+    int menu = 0;    
     int nroPedido = 1;
 
     ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
@@ -32,9 +33,32 @@ public class App {
                     System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Aprovar pedido de aquisição\n3 - Verificar Estatisticas Gerais\n0 - Voltar");
                     int opcao = entrada.nextInt();                    
                     switch(opcao) {
-                        case 1:
-                        ///public PedidoAquisicao(Usuario user, int idDepartamento, Data dataPedido, int numeroPedido, ArrayList<Item> itens, Status status)
+                        case 1:                        
+                        menu++;
+                        System.out.println("REGISTRO DE PEDIDO:\n");
+
+                        ArrayList<Item> listaItem = new ArrayList<Item>();
+                        PedidoAquisicao novoPedido = new PedidoAquisicao(pedido, userAtual, userAtual.getIdDepartamento(), listaItem);
+
+                        boolean lista = true;
+                        int total = 0;
+                        
+                        while(lista = true) {
+                            System.out.println("Digite a descrição do produto: ");
+                            String descricao = entrada.nextLine();
                             
+                            System.out.println("Digite o valor do produto: ");
+                            double valor = entrada.nextDouble();
+                            
+                            System.out.println("Digite a quantidade: ");
+                            int quantidade = entrada.nextInt();
+                            listaItem.add(new Item(descricao, valor, quantidade));                                
+                            System.out.println("Deseja adicionar mais um item?\n1 - sim\n2 - nao");
+                            int resposta = entrada.nextInt();
+
+                            if(resposta == 2)
+                                lista = false;
+                        }
                             
 
                             //Regra de negócio: O sistema não possui os produtos registrado

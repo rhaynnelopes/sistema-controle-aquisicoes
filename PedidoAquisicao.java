@@ -11,13 +11,13 @@ public class PedidoAquisicao {
     private double valorTotal = 0; // soma do valor total de todos itens;
     private ArrayList<Item> itens;
 
-    public PedidoAquisicao(Usuario user, int idDepartamento, Data dataPedido, int numeroPedido, Status status) {
+    public PedidoAquisicao(int numeroPedido, Usuario user, int idDepartamento, ArrayList<Item> itens) {
         this.user = user;
         this.idDepartamento = idDepartamento;
         this.dataPedido = dataPedido;
         this.numeroPedido = numeroPedido;
         this.itens = itens;
-        this.status = status;
+        this.status = status.PENDENTE;
     }
     
     public int getNumeroPedido() {

@@ -1,3 +1,3 @@
 public enum Status {
-    PENDENTE, FINALIZADO, APROVADO
+    PENDENTE, FINALIZADO, APROVADO;
 }
