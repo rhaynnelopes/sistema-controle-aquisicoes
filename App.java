@@ -32,8 +32,7 @@ public class App {
                     int opcao = entrada.nextInt();                    
                     switch(opcao) {
                         case 1:                        
-                        menu++;
-                        
+                        menu++;                        
                         System.out.println("REGISTRO DE PEDIDO:\n");
                         registraPedido(userAtual, listaPedidos); 
                         break;
@@ -80,15 +79,14 @@ public class App {
                 case 2:
                     System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n0 - Voltar");
                     opcao = entrada.nextInt();
-                    menu++;
                     switch(opcao) {
                         case 1:
                             System.out.println("REGISTRO DE PEDIDO:\n");
-                            //selecionar item por id
-                            //selecionar quantidade
+                            menu++;                        
+                            registraPedido(userAtual, listaPedidos);
                         break;
                         case 0:
-                            menu--;
+                            menu = 0;
                         break;
                     }                
                 break;
