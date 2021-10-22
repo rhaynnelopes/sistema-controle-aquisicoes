@@ -30,7 +30,7 @@ public class App {
             switch(userAtual.tipoUsuario)
             {            
                 case 1:
-                    System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Aprovar pedido de aquisição\n3 - Verificar Estatisticas Gerais\n0 - Voltar");
+                    System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Gerenciar Pedidos\n3 - Verificar Estatisticas Gerais\n0 - Voltar");
                     int opcao = entrada.nextInt();                    
                     switch(opcao) {
                         case 1:                        
@@ -39,41 +39,57 @@ public class App {
                         registraPedido(userAtual, listaPedidos); 
                         break;
                         case 2:
-                            menu++;
-                            System.out.println("GERENCIAR REQUISIÇÕES:\n");
-                            printPedidos(listaPedidos);
-                            System.out.print("\nDigite o número do pedido que deseja gerenciar: ");
-                            int numeroPedido = entrada.nextInt();
-                            
-                            PedidoAquisicao pedidoEscolhido = new PedidoAquisicao();
-                            for (PedidoAquisicao pedido : listaPedidos)
-                            {
-                                if(numeroPedido == pedido.getNumeroPedido())
-                                pedidoEscolhido = pedido;
-                            }
+                            menu++;                            
+                            System.out.println("GERENCIAR REQUISIÇÕES:\n");    
+                            System.out.println("Digite sua escolha\n1 - Aprovar/Rejeitar pedidos\n2 - Remover Pedidos");
+                            opcao = entrada.nextInt();
+                           
+                            if(opcao == 1) {
+                                printPedidos(listaPedidos);
+                                System.out.print("\nDigite o número do pedido que deseja gerenciar: ");
+                                int numeroPedido = entrada.nextInt();
+                                
+                                PedidoAquisicao pedidoEscolhido = new PedidoAquisicao();
+                                for (PedidoAquisicao pedido : listaPedidos)
+                                {
+                                    if(numeroPedido == pedido.getNumeroPedido())
+                                    pedidoEscolhido = pedido;
+                                }
 
-                            System.out.print("Digite 1 para aprovar e 2 para rejeitar ou 0 para retornar");
-                            int escolha = entrada.nextInt();
-                            if (escolha == 1) {
-                                Date date = new Date(); 
-                                pedidoEscolhido.setStatus(Status.APROVADO);
-                                pedidoEscolhido.setDataConclusao(date);
+                                System.out.print("Digite 1 para aprovar e 2 para rejeitar ou 0 para retornar");
+                                int escolha = entrada.nextInt();
+                                if (escolha == 1) {
+                                    Date date = new Date(); 
+                                    pedidoEscolhido.setStatus(Status.APROVADO);
+                                    pedidoEscolhido.setDataConclusao(date);
+                                }
+                                if (escolha == 2)
+                                    pedidoEscolhido.setStatus(Status.REJEITADO);
+                                if (escolha == 0)
+                                    menu = 1;
+                                menu--;
                             }
-                            if (escolha == 2)
-                                pedidoEscolhido.setStatus(Status.REJEITADO);
-                            if (escolha == 0)
+                            if(opcao == 2) {
+                                printPedidos(listaPedidos);
+                                System.out.print("\nDigite o número do pedido que deseja remover: ");
+                                int numeroPedido = entrada.nextInt();
+
+                                PedidoAquisicao pedidoEscolhido = new PedidoAquisicao();
+                                for (PedidoAquisicao pedido : listaPedidos)
+                                {
+                                    if(numeroPedido == pedido.getNumeroPedido())
+                                    pedidoEscolhido = pedido;
+                                }
+
+                                listaPedidos.remove(pedidoEscolhido);
                                 menu = 1;
-                            menu--;                      
+
+                            }
                         break;
                         case 3:
                             menu++;
                             System.out.println("ESTATISTICAS GERAIS:\n");
                             printPedidos(listaPedidos);
-                            //printPedidos();
-                            //Número de pedidos total, divididos entre aprovados e reprovados (com percentuais)
-                            //Número de pedidos nos últimos 30 dias e seu valor médio.
-                            //Valor total de cada categoria nos últimos 30 dias
-                            //Detalhes do pedido de aquisição de maior valor ainda aberto.
                         break;                            
                         case 0:
                             menu = 0;
@@ -124,7 +140,6 @@ public class App {
     public static void registraPedido(Usuario userAtual, ArrayList<PedidoAquisicao> listaPedidos) {
         ArrayList<Item> listaItem = new ArrayList<Item>();
         Date date = new Date();        
-        //SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         PedidoAquisicao novoPedido = new PedidoAquisicao(pedido, userAtual, userAtual.getIdDepartamento(), listaItem, date);
         boolean lista = true;
         int total = 0;

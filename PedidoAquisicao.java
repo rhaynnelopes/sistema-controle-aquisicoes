@@ -65,7 +65,7 @@ public class PedidoAquisicao {
     }
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
-    }   
+    }
 
     @Override
     public String toString() {
