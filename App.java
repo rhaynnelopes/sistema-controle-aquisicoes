@@ -15,9 +15,10 @@ public class App {
     ArrayList<PedidoAquisicao> listaPedidos = new ArrayList<PedidoAquisicao>();    
     criarListaUsuarios(listaUsuarios);
     do {
+        clearScreen();
         System.out.println("SEJA BEM-VINDO!\n");
         exibirListaUsuarios(listaUsuarios);
-        System.out.println("\n\nSelecione seu usuario pelo id:");
+        System.out.print("\nSelecione seu usuario pelo id: ");
 
         int idUser = entrada.nextInt();
         Usuario userAtual = new Usuario();        
@@ -26,77 +27,51 @@ public class App {
             if(idUser == user.getIdUsuario())
             userAtual = user;
         }
-        do {            
+        do {           
+            clearScreen(); 
             switch(userAtual.tipoUsuario)
-            {            
+            {          
                 case 1:
                     System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Gerenciar Pedidos\n3 - Verificar Estatisticas Gerais\n0 - Voltar");
+                    System.out.print("Escolha: ");
                     int opcao = entrada.nextInt();                    
                     switch(opcao) {
-                        case 1:                        
-                        menu++;                        
+
+                        case 1:                                                                       
                         System.out.println("REGISTRO DE PEDIDO:\n");
                         registraPedido(userAtual, listaPedidos); 
+                        menu = 1;
                         break;
+
                         case 2:
-                            menu++;                            
                             System.out.println("GERENCIAR REQUISIÇÕES:\n");    
                             System.out.println("Digite sua escolha\n1 - Aprovar/Rejeitar pedidos\n2 - Remover Pedidos");
-                            opcao = entrada.nextInt();
-                           
+                            System.out.print("Escolha: ");
+                            opcao = entrada.nextInt();                           
                             if(opcao == 1) {
-                                printPedidos(listaPedidos);
-                                System.out.print("\nDigite o número do pedido que deseja gerenciar: ");
-                                int numeroPedido = entrada.nextInt();
-                                
-                                PedidoAquisicao pedidoEscolhido = new PedidoAquisicao();
-                                for (PedidoAquisicao pedido : listaPedidos)
-                                {
-                                    if(numeroPedido == pedido.getNumeroPedido())
-                                    pedidoEscolhido = pedido;
-                                }
-
-                                System.out.print("Digite 1 para aprovar e 2 para rejeitar ou 0 para retornar");
-                                int escolha = entrada.nextInt();
-                                if (escolha == 1) {
-                                    Date date = new Date(); 
-                                    pedidoEscolhido.setStatus(Status.APROVADO);
-                                    pedidoEscolhido.setDataConclusao(date);
-                                }
-                                if (escolha == 2)
-                                    pedidoEscolhido.setStatus(Status.REJEITADO);
-                                if (escolha == 0)
-                                    menu = 1;
-                                menu--;
+                            PedidoAprovaReijeita(listaPedidos);
+                            menu = 1;
                             }
+
                             if(opcao == 2) {
-                                printPedidos(listaPedidos);
-                                System.out.print("\nDigite o número do pedido que deseja remover: ");
-                                int numeroPedido = entrada.nextInt();
-
-                                PedidoAquisicao pedidoEscolhido = new PedidoAquisicao();
-                                for (PedidoAquisicao pedido : listaPedidos)
-                                {
-                                    if(numeroPedido == pedido.getNumeroPedido())
-                                    pedidoEscolhido = pedido;
-                                }
-
-                                listaPedidos.remove(pedidoEscolhido);
+                                excluiPedido(listaPedidos);
                                 menu = 1;
-
                             }
                         break;
+
                         case 3:
                             menu++;
                             System.out.println("ESTATISTICAS GERAIS:\n");
                             printPedidos(listaPedidos);
-                        break;                            
+                        break;
+
                         case 0:
                             menu = 0;
                             System.out.println("valor menu = " + menu);
                             break;                    
                     }
                 break;
+                
                 case 2:
                     System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n0 - Voltar");
                     opcao = entrada.nextInt();
@@ -148,22 +123,23 @@ public class App {
         //loop para adicionar lista//
         while(lista = true) {
             Scanner entrada = new Scanner(System.in);
-            System.out.println("Digite a descrição do produto: ");
+            System.out.print("Digite a descrição do produto: ");
             String descricao = entrada.next();
             
-            System.out.println("Digite o valor do produto: ");
+            System.out.print("Digite o valor do produto: ");
             double valor = entrada.nextDouble();
             
-            System.out.println("Digite a quantidade: ");
+            System.out.print("Digite a quantidade: ");
             int quantidade = entrada.nextInt();
             listaItem.add(new Item(descricao, valor, quantidade));
             valorTotal = valorTotal + (valor * quantidade);
             System.out.println("Deseja adicionar mais um item?\n1 - sim\n2 - nao");
+            System.out.print("Escolha: ");
             int resposta = entrada.nextInt();
 
             if(resposta == 2) {
                 lista = false;
-                System.out.println("Itens Adicionados");
+                System.out.print("Itens Adicionados");
                 novoPedido.setValorTotal(valorTotal);
                 listaPedidos.add(novoPedido);
                 pedido++; //atualiza para próximo id de pedido
@@ -178,6 +154,48 @@ public class App {
         }
     }
 
+    public static void clearScreen() {  
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
+    }
+
+    public static void PedidoAprovaReijeita(ArrayList<PedidoAquisicao> listaPedidos) {
+        Scanner entrada = new Scanner(System.in);
+        printPedidos(listaPedidos);
+        System.out.print("\nDigite o número do pedido que deseja gerenciar: ");
+        int numeroPedido = entrada.nextInt();
+                        
+        PedidoAquisicao pedidoEscolhido = new PedidoAquisicao();
+        for (PedidoAquisicao pedido : listaPedidos)
+        {
+            if(numeroPedido == pedido.getNumeroPedido())
+            pedidoEscolhido = pedido;
+        }
+        System.out.print("Digite 1 para aprovar e 2 para rejeitar ou 0 para retornar - ");
+        int escolha = entrada.nextInt();
+        if (escolha == 1) {
+            Date date = new Date(); 
+            pedidoEscolhido.setStatus(Status.APROVADO);
+            pedidoEscolhido.setDataConclusao(date);
+        }
+        if (escolha == 2)
+            pedidoEscolhido.setStatus(Status.REJEITADO);
+    }
+
+    public static void excluiPedido(ArrayList<PedidoAquisicao> listaPedidos) {
+        Scanner entrada = new Scanner(System.in);    
+        printPedidos(listaPedidos);
+        System.out.print("\nDigite o número do pedido que deseja remover: ");
+        int numeroPedido = entrada.nextInt();
+
+        PedidoAquisicao pedidoEscolhido = new PedidoAquisicao();
+        for (PedidoAquisicao pedido : listaPedidos)
+        {
+            if(numeroPedido == pedido.getNumeroPedido())
+            pedidoEscolhido = pedido;
+        }
+        listaPedidos.remove(pedidoEscolhido);
+    }
     /*
     private static void criarEExibirListaPedidos(ArrayList<PedidoAquisicaoTemp> listaPedidos) {
         criaListaPedidos(listaPedidos);
