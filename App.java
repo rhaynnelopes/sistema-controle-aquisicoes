@@ -59,10 +59,12 @@ public class App {
                             }
                         break;
 
-                        case 3:
-                            menu++;
+                        case 3:                            
                             System.out.println("ESTATISTICAS GERAIS:\n");
-                            printPedidos(listaPedidos);
+                            System.out.println("Digite o tópico desejado:\n1 - Buscar pedido por Funcionario\n2 - Buscar pedido por Descricao\n3 - Listar pedidos aprovados");
+                            System.out.println("4 - Listar pedidos reprovados\n5 - Listar média pedidos por mes\n6 - Listar total da categoria por mês");
+                            System.out.println("5 - Exibir maior aquisição pendente");
+                            opcao = entrada.nextInt();
                         break;
 
                         case 0:
@@ -88,9 +90,7 @@ public class App {
                 break;
             }
         }while(menu == 1);
-    }while(menu == 0);   
-    
-    
+    }while(menu == 0);
     entrada.close();
     }
     /*//////////////////////////////////////////////////////////////////////////////
