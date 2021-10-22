@@ -54,7 +54,7 @@ public class App {
                             }
 
                             if(opcao == 2) {
-                                excluiPedido(listaPedidos);
+                                excluiPedido(userAtual.getIdUsuario(), listaPedidos);
                                 menu = 1;
                             }
                         break;
@@ -75,13 +75,17 @@ public class App {
                 break;
 
                 case 2:
-                    System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n0 - Voltar");
+                    System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n2 - Excluir pedido\n0 - Voltar");
                     opcao = entrada.nextInt();
                     switch(opcao) {
                         case 1:
-                            System.out.println("REGISTRO DE PEDIDO:\n");
-                            menu++;                        
+                            System.out.println("REGISTRO DE PEDIDO:\n");                                                    
                             registraPedido(userAtual, listaPedidos);
+                            menu = 1;
+                        break;
+                        case 2:
+                            excluiPedido(userAtual.getIdUsuario(), listaPedidos);
+                            menu = 1;
                         break;
                         case 0:
                             menu = 0;
@@ -189,9 +193,10 @@ public class App {
     }
 
     //MÉTODO PARA EXCLUIR PEDIDO
-    public static void excluiPedido(ArrayList<PedidoAquisicao> listaPedidos) {
+    public static void excluiPedido(int idUsuario, ArrayList<PedidoAquisicao> listaPedidos) {
         Scanner entrada = new Scanner(System.in);    
         printPedidos(listaPedidos);
+        
         System.out.print("\nDigite o número do pedido que deseja remover: ");
         int numeroPedido = entrada.nextInt();
 
@@ -201,6 +206,17 @@ public class App {
             if(numeroPedido == pedido.getNumeroPedido())
             pedidoEscolhido = pedido;
         }
-        listaPedidos.remove(pedidoEscolhido);
+        Usuario solicitante = pedidoEscolhido.getUsuario();
+        if(pedidoEscolhido.getStatus() == Status.PENDENTE && solicitante.getIdUsuario() == idUsuario) {
+            listaPedidos.remove(pedidoEscolhido);
+        }
+        else {
+            System.out.println("Apenas o usuario que solicitou o pedido pode excluí-lo");
+        }
     }
+
+    /*//////////////////////////////////////////////////////////////////////////////
+                            MÉTODOS PARA ESTATISTICAS GERAIS                                       
+    /////////////////////////////////////////////////////////////////////////////*/
+
 }
