@@ -71,7 +71,7 @@ public class App {
                             break;                    
                     }
                 break;
-                
+
                 case 2:
                     System.out.println("Olá " + userAtual.getNome() + ", selecione a ação desejada: \n1 - Registrar novo pedido\n0 - Voltar");
                     opcao = entrada.nextInt();
@@ -93,7 +93,9 @@ public class App {
     
     entrada.close();
     }
-
+    /*//////////////////////////////////////////////////////////////////////////////
+                                 MÉTODOS PARA LISTAS                                       
+    /////////////////////////////////////////////////////////////////////////////*/
     private static void criarEExibirListaUsuarios(ArrayList<Usuario> listaUsuarios) {
         criarListaUsuarios(listaUsuarios);
         exibirListaUsuarios(listaUsuarios);
@@ -112,6 +114,15 @@ public class App {
         }
     }
 
+    public static void printPedidos(ArrayList<PedidoAquisicao> listaPedidos) {
+        for (PedidoAquisicao pedido : listaPedidos) {
+            System.out.println(pedido.toString());
+        }
+    }
+
+    /*//////////////////////////////////////////////////////////////////////////////
+                                 MÉTODOS PARA O MENU                                       
+    /////////////////////////////////////////////////////////////////////////////*/
     public static void registraPedido(Usuario userAtual, ArrayList<PedidoAquisicao> listaPedidos) {
         ArrayList<Item> listaItem = new ArrayList<Item>();
         Date date = new Date();        
@@ -147,18 +158,13 @@ public class App {
             }                                
         }
     }
-    
-    public static void printPedidos(ArrayList<PedidoAquisicao> listaPedidos) {
-        for (PedidoAquisicao pedido : listaPedidos) {
-            System.out.println(pedido.toString());
-        }
-    }
-
+    //LIMPA TELA
     public static void clearScreen() {  
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
 
+    //MÉTODO PARA APROVAR OU REJEITAR PEDIDOS
     public static void PedidoAprovaReijeita(ArrayList<PedidoAquisicao> listaPedidos) {
         Scanner entrada = new Scanner(System.in);
         printPedidos(listaPedidos);
@@ -182,6 +188,7 @@ public class App {
             pedidoEscolhido.setStatus(Status.REJEITADO);
     }
 
+    //MÉTODO PARA EXCLUIR PEDIDO
     public static void excluiPedido(ArrayList<PedidoAquisicao> listaPedidos) {
         Scanner entrada = new Scanner(System.in);    
         printPedidos(listaPedidos);
@@ -196,23 +203,4 @@ public class App {
         }
         listaPedidos.remove(pedidoEscolhido);
     }
-    /*
-    private static void criarEExibirListaPedidos(ArrayList<PedidoAquisicaoTemp> listaPedidos) {
-        criaListaPedidos(listaPedidos);
-        exibirListaPedidos(listaPedidos);
-    }
-*/
-/*
-    private static void criaListaPedidos(ArrayList<PedidoAquisicaoTemp> listaPedidos) {        
-        listaPedidos.add(new PedidoAquisicaoTemp(2));
-        //listaPedidos.add(new PedidoAquisicaoTemp(2, ));
-    }
-*/
-/*
-    private static void exibirListaPedidos(ArrayList<PedidoAquisicaoTemp> listaPedidos) {
-        for (PedidoAquisicaoTemp pedido : listaPedidos) {
-            System.out.println(pedido.toString());
-        }
-    }
-    */
 }
