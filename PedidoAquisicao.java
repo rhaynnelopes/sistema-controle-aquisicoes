@@ -19,7 +19,7 @@ public class PedidoAquisicao {
         this.itens = itens;
         this.status = status;
     }
-
+    
     public int getNumeroPedido() {
         return numeroPedido;
     }

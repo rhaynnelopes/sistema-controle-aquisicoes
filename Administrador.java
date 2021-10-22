@@ -6,9 +6,8 @@ public class Administrador extends Usuario {
     } 
     
    
-   public boolean aprovaPedido(int numeroPedido){
+   public int aprovaPedido(int numeroPedido){
       return numeroPedido;
-      //mudar
    }
    
    public int getidAdm(){
