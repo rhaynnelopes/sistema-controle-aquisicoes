@@ -45,7 +45,7 @@ public class App {
                         
                         while(lista = true) {
                             System.out.println("Digite a descrição do produto: ");
-                            String descricao = entrada.nextLine();
+                            String descricao = entrada.next();
                             
                             System.out.println("Digite o valor do produto: ");
                             double valor = entrada.nextDouble();
@@ -56,8 +56,11 @@ public class App {
                             System.out.println("Deseja adicionar mais um item?\n1 - sim\n2 - nao");
                             int resposta = entrada.nextInt();
 
-                            if(resposta == 2)
+                            if(resposta == 2) {
                                 lista = false;
+                                System.out.println("Itens Adicionados");
+                                break;
+                            }                                
                         }
                             
 
