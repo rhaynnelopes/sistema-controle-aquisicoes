@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
@@ -6,8 +7,13 @@ public class App {
         ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
         ArrayList<Departamento> listaDepartamentos = new ArrayList<Departamento>();
 
+    do {
+        String menu;
+        System.out.println("valor menu = " + menu);
+        System.out.println("SEJA BEM-VINDO!\n");
         criarEExibirListaUsuarios(listaUsuarios);
         criarEExibirListaDepartamentos(listaDepartamentos);
+    }
     }
 
     private static void criarEExibirListaUsuarios(ArrayList<Usuario> listaUsuarios) {
@@ -52,18 +58,18 @@ public class App {
         System.out.println("\n--------------------\n");
         for (Usuario usuario : listaUsuarios) {
             System.out.println(usuario.toString());
-          
+        
         }
-      
+    
     }
 
     private static void exibirListaDepartamentos(ArrayList<Departamento> listaDepartamentos) {
         System.out.println("\n--------------------\n");
         for (Departamento departamento : listaDepartamentos) {
             System.out.println(departamento.toString());
-          
+        
         }
-     
+    
     }
 
 }
