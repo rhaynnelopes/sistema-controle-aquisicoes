@@ -61,9 +61,14 @@ public class App {
 
                         case 3:                            
                             System.out.println("ESTATISTICAS GERAIS:\n");
-                            System.out.println("Digite o tópico desejado:\n1 - Buscar pedido por Funcionario\n2 - Buscar pedido por Descricao\n3 - Listar pedidos aprovados");
-                            System.out.println("4 - Listar pedidos reprovados\n5 - Listar média pedidos por mes\n6 - Listar total da categoria por mês");
-                            System.out.println("5 - Exibir maior aquisição pendente");
+                            System.out.println("Digite o tópico desejado:");
+                            System.out.println("1 - Buscar pedido por Funcionario");
+                            System.out.println("2 - Buscar pedido por Descricao");
+                            System.out.println("3 - Listar pedidos aprovados");
+                            System.out.println("4 - Listar pedidos reprovados");
+                            System.out.println("5 - Listar média pedidos por mes");
+                            System.out.println("6 - Listar total da categoria por mês");
+                            System.out.println("7 - Exibir maior aquisição pendente");
                             opcao = entrada.nextInt();
                         break;
 
