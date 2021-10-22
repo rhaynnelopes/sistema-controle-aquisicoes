@@ -32,7 +32,15 @@ public class PedidoAquisicao {
     }
 
     public void setStatus(Status status) {
-        this.status = status;
+        if(this.status == Status.REJEITADO)
+        {
+            System.out.println("----------------------------------------");
+            System.out.println("Impossível alterar produto já rejeitado!");
+            System.out.println("----------------------------------------");
+        }
+        else {
+            this.status = status;
+        }
     }
 
     public Data getDataPedido() {

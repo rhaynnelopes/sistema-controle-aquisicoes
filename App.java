@@ -11,10 +11,10 @@ public class App {
 
     ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
     ArrayList<PedidoAquisicao> listaPedidos = new ArrayList<PedidoAquisicao>();    
-
+    criarListaUsuarios(listaUsuarios);
     do {
         System.out.println("SEJA BEM-VINDO!\n");
-        criarEExibirListaUsuarios(listaUsuarios);
+        exibirListaUsuarios(listaUsuarios);
         System.out.println("\n\nSelecione seu usuario pelo id:");
 
         int idUser = entrada.nextInt();
@@ -71,7 +71,7 @@ public class App {
                             //Detalhes do pedido de aquisição de maior valor ainda aberto.
                         break;                            
                         case 0:
-                            menu--;
+                            menu = 0;
                             System.out.println("valor menu = " + menu);
                             break;                    
                     }
@@ -108,7 +108,6 @@ public class App {
         listaUsuarios.add(new Usuario(01, 2, "Claudio Roberto", "CR", 3));
         listaUsuarios.add(new Usuario(02, 2, "Laura Fonseca", "LF", 2));
         listaUsuarios.add(new Usuario(03, 1, "Alice Silva", "AS", 1));
-
     }
 
     private static void exibirListaUsuarios(ArrayList<Usuario> listaUsuarios) {
