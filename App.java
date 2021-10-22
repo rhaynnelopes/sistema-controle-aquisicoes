@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class App {
     private static int pedido = 1;
-    private Status status;    
+    private static Status status;    
 
     public static void main(String[] args) {
     int menu = 0;    
@@ -38,27 +38,28 @@ public class App {
                         registraPedido(userAtual, listaPedidos); 
                         break;
                         case 2:
-                            /*menu++;
-                            PedidoAquisicao pedidoAtual = new PedidoAquisicao();                            
+                            menu++;
                             System.out.println("GERENCIAR REQUISIÇÕES:\n");
-                            System.out.println("Lista de Pedidos:");
-                            criarEExibirListaPedidos(listaPedidos);
-                            System.out.println("Digite o numero do pedido que deseja gerenciar:");
-                            int numero = entrada.nextInt();
-
-                            for (PedidoAquisicaoTemp order : listaPedidos)
+                            printPedidos(listaPedidos);
+                            System.out.print("\nDigite o número do pedido que deseja gerenciar: ");
+                            int numeroPedido = entrada.nextInt();
+                            
+                            PedidoAquisicao pedidoEscolhido = new PedidoAquisicao();
+                            for (PedidoAquisicao pedido : listaPedidos)
                             {
-                                if(numero == order.getNumeroPedido)
-                                    pedidoAtual = order;
+                                if(numeroPedido == pedido.getNumeroPedido())
+                                pedidoEscolhido = pedido;
                             }
-                            System.out.println("Digite 1 para aprovar e 2 para excluir ou 3 para retornar");
-                            opcao = entrada.nextInt();
-                            if (opcao == 1)
-                                pedidoAtual.setStatus(status.APROVADO);
-                            if(opcao == 2)
-                                pedidoAtual.setStatus(status.APROVADO);
-                            if(opcao == 0)
-                                menu--;*/
+
+                            System.out.print("Digite 1 para aprovar e 2 para rejeitar ou 0 para retornar");
+                            int escolha = entrada.nextInt();
+                            if (escolha == 1)
+                                pedidoEscolhido.setStatus(Status.APROVADO);
+                            if (escolha == 2)
+                                pedidoEscolhido.setStatus(Status.REJEITADO);
+                            if (escolha == 0)
+                                menu--;
+                            menu--;                      
                         break;
                         case 3:
                             menu++;

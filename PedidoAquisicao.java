@@ -19,6 +19,9 @@ public class PedidoAquisicao {
         this.itens = itens;
         this.status = status.PENDENTE;
     }
+
+    public PedidoAquisicao() {
+    }
     
     public int getNumeroPedido() {
         return numeroPedido;
