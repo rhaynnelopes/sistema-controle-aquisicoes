@@ -8,7 +8,7 @@ public class PedidoAquisicao {
     private Data dataConclusao;
     private Usuario user;
     private int idDepartamento;
-    private double valorTotal = 0; // soma do valor total de todos itens;
+    private double valorTotal;
     private ArrayList<Item> itens;
 
     public PedidoAquisicao(int numeroPedido, Usuario user, int idDepartamento, ArrayList<Item> itens) {
@@ -42,6 +42,13 @@ public class PedidoAquisicao {
 
     public int getDepartamento(){
         return idDepartamento;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
     @Override

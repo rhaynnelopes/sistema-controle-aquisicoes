@@ -2,16 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
+    private static int pedido = 1;
+    private Status status;    
+
     public static void main(String[] args) {
-    int pedido = 1;
-    Status status;
     int menu = 0;    
-    int nroPedido = 1;
+    Scanner entrada = new Scanner(System.in);
 
     ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
     ArrayList<PedidoAquisicao> listaPedidos = new ArrayList<PedidoAquisicao>();    
-
-    Scanner entrada = new Scanner(System.in);
 
     do {
         System.out.println("SEJA BEM-VINDO!\n");
@@ -19,8 +18,7 @@ public class App {
         System.out.println("\n\nSelecione seu usuario pelo id:");
 
         int idUser = entrada.nextInt();
-        Usuario userAtual = new Usuario();
-        
+        Usuario userAtual = new Usuario();        
         for (Usuario user : listaUsuarios)
         {
             if(idUser == user.getIdUsuario())
@@ -35,33 +33,9 @@ public class App {
                     switch(opcao) {
                         case 1:                        
                         menu++;
-                        System.out.println("REGISTRO DE PEDIDO:\n");
-
-                        ArrayList<Item> listaItem = new ArrayList<Item>();
-                        PedidoAquisicao novoPedido = new PedidoAquisicao(pedido, userAtual, userAtual.getIdDepartamento(), listaItem);
-
-                        boolean lista = true;
-                        int total = 0;
                         
-                        while(lista = true) {
-                            System.out.println("Digite a descrição do produto: ");
-                            String descricao = entrada.next();
-                            
-                            System.out.println("Digite o valor do produto: ");
-                            double valor = entrada.nextDouble();
-                            
-                            System.out.println("Digite a quantidade: ");
-                            int quantidade = entrada.nextInt();
-                            listaItem.add(new Item(descricao, valor, quantidade));                                
-                            System.out.println("Deseja adicionar mais um item?\n1 - sim\n2 - nao");
-                            int resposta = entrada.nextInt();
-
-                            if(resposta == 2) {
-                                lista = false;
-                                System.out.println("Itens Adicionados");
-                                break;
-                            }                                
-                        }
+                        System.out.println("REGISTRO DE PEDIDO:\n");
+                        registraPedido(userAtual);
                             
 
                             //Regra de negócio: O sistema não possui os produtos registrado
@@ -156,6 +130,43 @@ public class App {
             System.out.println(usuario.toString());
         }
     }
+
+    public static void registraPedido(Usuario userAtual) {
+        ArrayList<Item> listaItem = new ArrayList<Item>();
+
+        PedidoAquisicao novoPedido = new PedidoAquisicao(pedido, userAtual, userAtual.getIdDepartamento(), listaItem);
+
+        boolean lista = true;
+        int total = 0;
+        double valorTotal = 0;
+        
+        //loop para adicionar lista//
+        while(lista = true) {
+            Scanner entrada = new Scanner(System.in);
+            System.out.println("Digite a descrição do produto: ");
+            String descricao = entrada.next();
+            
+            System.out.println("Digite o valor do produto: ");
+            double valor = entrada.nextDouble();
+            
+            System.out.println("Digite a quantidade: ");
+            int quantidade = entrada.nextInt();
+            listaItem.add(new Item(descricao, valor, quantidade));
+            valorTotal = valorTotal + (valor * quantidade);
+            System.out.println("Deseja adicionar mais um item?\n1 - sim\n2 - nao");
+            int resposta = entrada.nextInt();
+
+            if(resposta == 2) {
+                lista = false;
+                System.out.println("Itens Adicionados");
+                novoPedido.setValorTotal(valorTotal);
+                pedido++; //atualiza para próximo id de pedido
+                break;
+            }                                
+        }
+    }
+
+
     /*
     private static void criarEExibirListaPedidos(ArrayList<PedidoAquisicaoTemp> listaPedidos) {
         criaListaPedidos(listaPedidos);
