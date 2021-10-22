@@ -19,6 +19,10 @@ public class Usuario {
         this.idDepartamento = idDepartamento;
     }
 
+    public Usuario() {
+
+    }
+
     public int getIdUsuario() {
 
         return idUsuario;

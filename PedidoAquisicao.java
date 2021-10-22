@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+java import java.util.ArrayList;
 
 public class PedidoAquisicao {
 
@@ -19,7 +19,7 @@ public class PedidoAquisicao {
         this.itens = itens;
         this.status = status;
     }
-
+    
     public int getNumeroPedido() {
         return numeroPedido;
     }
@@ -50,5 +50,4 @@ public class PedidoAquisicao {
                 + ", DataConclusao: " + dataConclusao + ", ValorTotal: " + valorTotal + ", Itens: "
                 + itens;
     }
-
 }
