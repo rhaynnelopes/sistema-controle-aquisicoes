@@ -35,22 +35,7 @@ public class App {
                         menu++;
                         
                         System.out.println("REGISTRO DE PEDIDO:\n");
-                        registraPedido(userAtual);
-                            
-
-                            //Regra de negócio: O sistema não possui os produtos registrado
-                            //Pedidos novoPedido = new Pedido(numero id pedido, data do pedido, data da conclusão, departamento, usuario);
-                            //lista de itens
-                            //scanner (digite a descricao do produto) -> descricao
-                            //scanner (digite o valor do produto) -> valor
-                            //scanner (digite a quantidade) -> quantidade
-                            //valor total = valor * quantidade
-                            //Item numeroItem = new Item(numero id pedido, numero id item, descricao, valor, quantidade, total);
-                            //System.out.println("Deseja adicionar mais um item?")
-                            //Se sim - Item numeroItem = new Item(numero id pedido, numero id item, descricao, valor, quantidade, total);
-                            //Se não - definir valorTotal do pedido somando total do item
-                            //menu-- (voltar tela)
-                           
+                        registraPedido(userAtual, listaPedidos); 
                         break;
                         case 2:
                             /*menu++;
@@ -78,11 +63,13 @@ public class App {
                         case 3:
                             menu++;
                             System.out.println("ESTATISTICAS GERAIS:\n");
+                            printPedidos(listaPedidos);
+                            //printPedidos();
                             //Número de pedidos total, divididos entre aprovados e reprovados (com percentuais)
                             //Número de pedidos nos últimos 30 dias e seu valor médio.
                             //Valor total de cada categoria nos últimos 30 dias
                             //Detalhes do pedido de aquisição de maior valor ainda aberto.
-                        break;
+                        break;                            
                         case 0:
                             menu--;
                             System.out.println("valor menu = " + menu);
@@ -131,7 +118,7 @@ public class App {
         }
     }
 
-    public static void registraPedido(Usuario userAtual) {
+    public static void registraPedido(Usuario userAtual, ArrayList<PedidoAquisicao> listaPedidos) {
         ArrayList<Item> listaItem = new ArrayList<Item>();
 
         PedidoAquisicao novoPedido = new PedidoAquisicao(pedido, userAtual, userAtual.getIdDepartamento(), listaItem);
@@ -160,12 +147,18 @@ public class App {
                 lista = false;
                 System.out.println("Itens Adicionados");
                 novoPedido.setValorTotal(valorTotal);
+                listaPedidos.add(novoPedido);
                 pedido++; //atualiza para próximo id de pedido
                 break;
             }                                
         }
     }
-
+    
+    public static void printPedidos(ArrayList<PedidoAquisicao> listaPedidos) {
+        for (PedidoAquisicao pedido : listaPedidos) {
+            System.out.println(pedido.toString());
+        }
+    }
 
     /*
     private static void criarEExibirListaPedidos(ArrayList<PedidoAquisicaoTemp> listaPedidos) {

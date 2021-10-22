@@ -32,4 +32,9 @@ public class Item {
     public void setQuantidade(int q){
         this.quantidade = q;
     }
+
+    @Override
+    public String toString() {
+        return "[Descrição: " + descricao + ", Valor: " + valorUnitario + ", Quantidade]";
+    }
     }

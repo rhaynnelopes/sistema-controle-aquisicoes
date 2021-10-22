@@ -49,12 +49,12 @@ public class PedidoAquisicao {
     }
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
-    }
+    }   
 
     @Override
     public String toString() {
         return "[Pedido nro: " + numeroPedido + ", Status: " + status + ", DataPedido: " + dataPedido
                 + ", DataConclusao: " + dataConclusao + ", ValorTotal: " + valorTotal + ", Itens: "
-                + itens;
+                + itens.toString();
     }
 }
