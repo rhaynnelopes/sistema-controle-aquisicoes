@@ -1,4 +1,4 @@
-public class Item{
+public class Item {
     private String descricao;
     private  double valorUnitario;
     private int quantidade;

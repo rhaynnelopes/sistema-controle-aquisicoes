@@ -1,4 +1,4 @@
-java import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class PedidoAquisicao {
 
@@ -6,14 +6,14 @@ public class PedidoAquisicao {
     private Status status;
     private Data dataPedido;
     private Data dataConclusao;
-    private Funcionario funcionario;
-    private Departamento departamento;
+    private Usuario user;
+    private int idDepartamento;
     private double valorTotal = 0; // soma do valor total de todos itens;
     private ArrayList<Item> itens;
 
-    public PedidoAquisicao(Funcionario funcionario, Departamento departamento, Data dataPedido, int numeroPedido, ArrayList<Item> itens, Status status) {
-        this.funcionario = funcionario;
-        this.departamento = departamento;
+    public PedidoAquisicao(Usuario user, int idDepartamento, Data dataPedido, int numeroPedido, Status status) {
+        this.user = user;
+        this.idDepartamento = idDepartamento;
         this.dataPedido = dataPedido;
         this.numeroPedido = numeroPedido;
         this.itens = itens;
@@ -36,12 +36,12 @@ public class PedidoAquisicao {
         return dataPedido;
     }
 
-    public Funcionario getFuncionario(){
-        return funcionario;
+    public Usuario getUsuario(){
+        return user;
     }
 
-    public Departamento getDepartamento(){
-        return departamento;
+    public int getDepartamento(){
+        return idDepartamento;
     }
 
     @Override
