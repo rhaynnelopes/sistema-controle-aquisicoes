@@ -1,5 +1,7 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Date;
 
 public class App {
     private static int pedido = 1;
@@ -52,12 +54,15 @@ public class App {
 
                             System.out.print("Digite 1 para aprovar e 2 para rejeitar ou 0 para retornar");
                             int escolha = entrada.nextInt();
-                            if (escolha == 1)
+                            if (escolha == 1) {
+                                Date date = new Date(); 
                                 pedidoEscolhido.setStatus(Status.APROVADO);
+                                pedidoEscolhido.setDataConclusao(date);
+                            }
                             if (escolha == 2)
                                 pedidoEscolhido.setStatus(Status.REJEITADO);
                             if (escolha == 0)
-                                menu--;
+                                menu = 1;
                             menu--;                      
                         break;
                         case 3:
@@ -118,9 +123,9 @@ public class App {
 
     public static void registraPedido(Usuario userAtual, ArrayList<PedidoAquisicao> listaPedidos) {
         ArrayList<Item> listaItem = new ArrayList<Item>();
-
-        PedidoAquisicao novoPedido = new PedidoAquisicao(pedido, userAtual, userAtual.getIdDepartamento(), listaItem);
-
+        Date date = new Date();        
+        //SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        PedidoAquisicao novoPedido = new PedidoAquisicao(pedido, userAtual, userAtual.getIdDepartamento(), listaItem, date);
         boolean lista = true;
         int total = 0;
         double valorTotal = 0;

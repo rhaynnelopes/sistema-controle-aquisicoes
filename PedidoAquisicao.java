@@ -1,23 +1,24 @@
 import java.util.ArrayList;
-
+import java.util.Date;
 public class PedidoAquisicao {
 
     private int numeroPedido;
     private Status status;
-    private Data dataPedido;
-    private Data dataConclusao;
+    private Date dataPedido;
+    private Date dataConclusao;
     private Usuario user;
     private int idDepartamento;
     private double valorTotal;
     private ArrayList<Item> itens;
 
-    public PedidoAquisicao(int numeroPedido, Usuario user, int idDepartamento, ArrayList<Item> itens) {
+    public PedidoAquisicao(int numeroPedido, Usuario user, int idDepartamento, ArrayList<Item> itens, Date dataPedido) {
         this.user = user;
         this.idDepartamento = idDepartamento;
         this.dataPedido = dataPedido;
         this.numeroPedido = numeroPedido;
         this.itens = itens;
         this.status = status.PENDENTE;
+        this.dataPedido = dataPedido;
     }
 
     public PedidoAquisicao() {
@@ -43,12 +44,16 @@ public class PedidoAquisicao {
         }
     }
 
-    public Data getDataPedido() {
+    public Date getDataPedido() {
         return dataPedido;
     }
 
     public Usuario getUsuario(){
         return user;
+    }
+
+    public void setDataConclusao(Date dataConclusao) {
+        this.dataConclusao = dataConclusao;
     }
 
     public int getDepartamento(){
@@ -64,7 +69,7 @@ public class PedidoAquisicao {
 
     @Override
     public String toString() {
-        return "[Pedido nro: " + numeroPedido + ", Status: " + status + ", DataPedido: " + dataPedido
+        return "[Pedido nro: " + numeroPedido + ", Status: " + status + ", DataPedido: " + dataPedido.toString()
                 + ", DataConclusao: " + dataConclusao + ", ValorTotal: " + valorTotal + ", Itens: "
                 + itens.toString();
     }
