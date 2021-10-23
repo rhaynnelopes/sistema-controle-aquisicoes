@@ -90,10 +90,8 @@ public class App {
                                             menu = 1;
                                         }
                                     }*/
-                                    System.out.println("passei por aqui ");
                                     break;
                                 case 2:
-                                    System.out.println("ba arram");
                                     break;
                                 case 3:
                                     break;
@@ -111,7 +109,6 @@ public class App {
 
                         case 0:
                             menu = 0;
-                            System.out.println("valor menu = " + menu);
                             break;                    
                     }
                 break;
