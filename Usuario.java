@@ -19,7 +19,12 @@ public class Usuario {
     }
 
     public Usuario() {
+
+
+    public int getIdUsuario() {
+
     }
+
 
     public int getIdUsuario() {
         return idUsuario;

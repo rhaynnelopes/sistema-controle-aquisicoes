@@ -1,7 +1,9 @@
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import java.util.Date;
+
 
 public class App {
     private static int pedido = 1;
@@ -40,6 +42,7 @@ public class App {
                     System.out.print("Escolha: ");
                     int opcao = entrada.nextInt();                    
                     switch(opcao) {
+
 
                         case 1:                                                                       
                         System.out.println("REGISTRO DE PEDIDO:\n");
@@ -139,7 +142,12 @@ public class App {
                                  MÉTODOS PARA LISTAS                                       
     /////////////////////////////////////////////////////////////////////////////*/
 
-    
+
+    private static void criarEExibirListaDepartamentos(ArrayList<Departamento> listaDepartamentos) {
+        criarListaDepartamentos(listaDepartamentos);
+        exibirListaDepartamentos(listaDepartamentos);
+    }
+
     private static void criarListaUsuarios(ArrayList<Usuario> listaUsuarios) {
         listaUsuarios.add(new Usuario(1, 2, "Claudio Roberto", "CR", 3));
         listaUsuarios.add(new Usuario(2, 2, "Laura Fonseca", "LF", 2));
@@ -156,14 +164,39 @@ public class App {
         listaUsuarios.add(new Usuario(13, 1, "Rita Cabedo", "RC", 5));
         listaUsuarios.add(new Usuario(14, 2, "Valentina Barros", "VB", 3));
         listaUsuarios.add(new Usuario(15, 2, "Matheus Ramos", "MR", 4));
+
+        
+    }
+
+    private static void criarListaDepartamentos(ArrayList<Departamento> listaDepartamentos) {
+        listaDepartamentos.add(new Departamento(1, 200, "Financeiro", 03));
+        listaDepartamentos.add(new Departamento(2, 100, "RH", 05));
+        listaDepartamentos.add(new Departamento(3, 100, "Engenharia", 03));
+        listaDepartamentos.add(new Departamento(4, 200, "Manutencao", 03));
+        listaDepartamentos.add(new Departamento(5, 100, "Administrativo", 05));
+
+
     }
 
     private static void exibirListaUsuarios(ArrayList<Usuario> listaUsuarios) {
         System.out.println("\n--------------------\n");
+
         System.out.println("Lista de funcionários:");
+
         for (Usuario usuario : listaUsuarios) {
             System.out.println(usuario.toString());
+        
         }
+    
+    }
+
+    private static void exibirListaDepartamentos(ArrayList<Departamento> listaDepartamentos) {
+        System.out.println("\n--------------------\n");
+        for (Departamento departamento : listaDepartamentos) {
+            System.out.println(departamento.toString());
+        
+        }
+    
     }
 
     private static void criarListaDepartamentos(ArrayList<Departamento> listaDepartamentos) {
