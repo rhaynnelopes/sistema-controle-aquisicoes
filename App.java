@@ -19,10 +19,10 @@ public class App {
 
     do {
         clearScreen();
-        System.out.println("SEJA BEM-VINDO!\n");
+        System.out.println("SEJA BEM-VINDO!");
         exibirListaUsuarios(listaUsuarios);
         exibirListaDepartamentos(listaDepartamentos);
-        System.out.print("\nSelecione seu usuario pelo id: ");
+        System.out.print("Selecione seu usuario pelo id: ");
 
         int idUser = entrada.nextInt();
         Usuario userAtual = new Usuario();        
@@ -74,7 +74,36 @@ public class App {
                             System.out.println("6 - Listar total da categoria por mês");
                             System.out.println("7 - Exibir maior aquisição pendente");
                             opcao = entrada.nextInt();
-                        break;
+                            switch (opcao) {
+                                case 1:
+                                    System.out.println("Digite o ID do funcionario: ");
+                                    System.out.println(I);
+                                    for (int i = 0; i < listaPedidos.size(); i++) {
+                                        if (listaPedidos.get(i).getUsuario().getIdUsuario() == I) {
+                                            System.out.println(listaPedidos.get(i).toString());
+                                        } else {
+                                            System.out.println("Nenhum pedido encontrado");
+                                            menu = 1;
+                                        }
+                                    }
+                                    System.out.println("passei por aqui ");
+                                    break;
+                                case 2:
+                                    System.out.println("ba arram");
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    break;
+                                case 5:
+                                    break;
+                                case 6:
+                                    break;
+                                case 7:
+                                    break;
+                                }
+                                break;
+                        
 
                         case 0:
                             menu = 0;
@@ -131,6 +160,7 @@ public class App {
 
     private static void exibirListaUsuarios(ArrayList<Usuario> listaUsuarios) {
         System.out.println("\n--------------------\n");
+        System.out.println("Lista de funcionários:");
         for (Usuario usuario : listaUsuarios) {
             System.out.println(usuario.toString());
         }
@@ -146,10 +176,11 @@ public class App {
 
     private static void exibirListaDepartamentos(ArrayList<Departamento> listaDepartamentos) {
         System.out.println("\n--------------------\n");
+        System.out.println("Lista de departamentos:");
         for (Departamento departamento : listaDepartamentos) {
             System.out.println(departamento.toString());
         }
-    
+        System.out.printf("\n");
     }
 
     public static void printPedidos(ArrayList<PedidoAquisicao> listaPedidos) {
