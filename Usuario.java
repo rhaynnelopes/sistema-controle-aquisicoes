@@ -2,13 +2,12 @@
 
 public class Usuario {
  
-    protected int idUsuario = 0;
-    protected int tipoUsuario = 0;
-    protected String nome = " ";
-    protected String iniciais = " "; 
-    protected int idDepartamento = 0;
-    protected int usuarioCadastrado = 0;
-    protected int proxPosicao; 
+    protected int idUsuario;
+    protected int tipoUsuario;
+    protected String nome;
+    protected String iniciais; 
+    protected int idDepartamento;
+    protected int usuarioCadastrado;
 
 
     public Usuario(int idUsuario, int tipoUsuario, String nome, String iniciais, int idDepartamento) {
@@ -21,15 +20,17 @@ public class Usuario {
 
     public Usuario() {
 
-    }
 
     public int getIdUsuario() {
 
+    }
+
+
+    public int getIdUsuario() {
         return idUsuario;
     }
    
     public int getTipoUsuario() {
-
         return tipoUsuario;
     }
 
@@ -61,9 +62,10 @@ public class Usuario {
         this.idDepartamento = idDepartamento;
     }
 
+    //int idUsuario, int tipoUsuario, String nome, String iniciais, int idDepartamento
     @Override
     public String toString() {
-        return "Usuario [departamento=" + idDepartamento + ", idUsuario=" + idUsuario + ", nome=" + nome
-                + ", tipoUsuario=" + tipoUsuario + "]";
+        return "Usuario [ID: " + idUsuario + ", Tipo: " + tipoUsuario + ", Nome: " + nome
+                + ", Departamento: " + idDepartamento + "]";
     }
 }
