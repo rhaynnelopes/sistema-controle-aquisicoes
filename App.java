@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import java.util.Date;
 
-
 public class App {
     private static int pedido = 1;
     private static Status status;    
@@ -23,7 +22,6 @@ public class App {
         clearScreen();
         System.out.println("SEJA BEM-VINDO!");
         exibirListaUsuarios(listaUsuarios);
-        exibirListaDepartamentos(listaDepartamentos);
         System.out.print("Selecione seu usuario pelo id: ");
 
         int idUser = entrada.nextInt();
@@ -79,16 +77,19 @@ public class App {
                             opcao = entrada.nextInt();
                             switch (opcao) {
                                 case 1:
-                                    System.out.println("Digite o ID do funcionario: ");
-                                    System.out.println(I);
+                                /*    
+                                System.out.println("Digite o ID do funcionario: ");
+                                    int id = entrada.nextInt();
+                                    //for 
                                     for (int i = 0; i < listaPedidos.size(); i++) {
+
                                         if (listaPedidos.get(i).getUsuario().getIdUsuario() == I) {
                                             System.out.println(listaPedidos.get(i).toString());
                                         } else {
                                             System.out.println("Nenhum pedido encontrado");
                                             menu = 1;
                                         }
-                                    }
+                                    }*/
                                     System.out.println("passei por aqui ");
                                     break;
                                 case 2:
@@ -198,7 +199,7 @@ public class App {
         }
     
     }
-
+    /*
     private static void criarListaDepartamentos(ArrayList<Departamento> listaDepartamentos) {
         listaDepartamentos.add(new Departamento(1, 200, "Financeiro", 03));
         listaDepartamentos.add(new Departamento(2, 100, "RH", 05));
@@ -206,7 +207,8 @@ public class App {
         listaDepartamentos.add(new Departamento(4, 200, "Manutencao", 03));
         listaDepartamentos.add(new Departamento(5, 100, "Administrativo", 05));
     }
-
+*/
+/*
     private static void exibirListaDepartamentos(ArrayList<Departamento> listaDepartamentos) {
         System.out.println("\n--------------------\n");
         System.out.println("Lista de departamentos:");
@@ -215,7 +217,7 @@ public class App {
         }
         System.out.printf("\n");
     }
-
+*/
     public static void printPedidos(ArrayList<PedidoAquisicao> listaPedidos) {
         for (PedidoAquisicao pedido : listaPedidos) {
             System.out.println(pedido.toString());
